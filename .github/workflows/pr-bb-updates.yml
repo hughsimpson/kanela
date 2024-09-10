@@ -23,6 +23,8 @@ jobs:
           distribution: 'zulu'
           java-version: 8
       - name: Rebuild byte-buddy if version has changed
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           if [ 'byte-buddy-tag' = $(git diff --diff-filter=d --name-only origin/master -- 'byte-buddy-tag' agent/libs | xargs) ]
           then
