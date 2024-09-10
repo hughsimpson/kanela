@@ -50,6 +50,6 @@ jobs:
           git config --global user.name "GitHub Actions"
           git config --global user.email "github_actions_bot@kamon.io"
           git commit -m "rebuilt byte buddy"
-          git push
+          git push origin update_byte_buddy-tag-$tag
           gh pr create -B automate_byte_buddy_updates -H update_byte_buddy-tag-$tag --fill && echo Update PR successfully made || echo PR is already open
           fi
