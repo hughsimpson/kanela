@@ -51,4 +51,5 @@ jobs:
           git commit -m "rebuilt byte buddy"
           git push -f origin update_byte_buddy-tag-$tag
           gh pr create -B master -H update_byte_buddy-tag-$tag --fill && echo Update PR successfully made || echo PR is already open
+          gh workflow run "Test all the things" --ref update_byte_buddy-tag-$tag
           fi
